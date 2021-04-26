@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="new-books-section">
-        <div class="index-book-item" v-for="book in books">
+        <div class="index-book-item" v-for="book in books.data">
             <div class="book-cover">
 					<img src="/../../img/book.jpg">
 			</div>
@@ -13,6 +13,9 @@
             <button class="add-to-cart-round"></button>
         </div>
     </div>
+    <div class="pagination-box">
+    <pagination :data="books" @pagination-change-page="getResults"></pagination>
+    </div>
 </div>
 </template>
 
@@ -20,15 +23,21 @@
     export default {
         data() {
             return {
-                books: []
+                books: {}
             }
         },
         mounted() {
-            axios.get('http://samdomas.lt/books-shop/api/v1/books')
-                .then(response => {
-                    this.books = response.data.data;
-            });
-        }
+            this.getResults();
+        },
+        methods: {
+		// Our method to GET results from a Laravel endpoint
+            getResults(page = 1) {
+                axios.get('http://samdomas.lt/books-shop/api/v1/books?page=' + page)
+                    .then(response => {
+                        this.books = response.data;
+                    });
+            }
+	    }
     }
 
 </script>

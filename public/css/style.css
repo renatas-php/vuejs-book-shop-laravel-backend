@@ -92,3 +92,36 @@ body {
     padding: 3px 10px;
     color: #2a8ee1;
 }
+.pagination-box {
+    border-top: 1px solid #f2f2f2;
+}
+.pagination {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.pagination li {
+    padding: 0.4rem 1rem;
+    list-style: none;
+    border: 1px solid #407bee;
+    margin: 0 0.1rem;
+}
+.pagination li.active {
+    background-color: #407bee;
+}
+.pagination li.active a{
+    color: #fff;
+}
+.pagination li.pagination-prev-nav,
+.pagination li.pagination-next-nav {
+    border: 1px solid #9f9f9f;
+}
+.pagination li.pagination-prev-nav a,
+.pagination li.pagination-next-nav a {
+    color: #9f9f9f;
+}
+.pagination li a {
+    text-decoration: none;
+    color: #407bee;
+}
