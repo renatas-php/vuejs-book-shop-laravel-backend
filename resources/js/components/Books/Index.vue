@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="overflow-hidden">
     <div class="new-books-section">
         <div class="index-book-item" v-for="book in books.data">
             <div class="book-cover">

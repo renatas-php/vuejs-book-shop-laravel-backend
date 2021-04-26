@@ -4,7 +4,10 @@ body {
     box-sizing: border-box;
     font-family: 'Prompt', sans-serif;
 }
-
+.overflow-hidden {
+    width: 100%;
+    overflow: hidden;
+}
 .new-books-section {
     display: flex;
     margin: 0 2rem;

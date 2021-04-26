@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,22 +11,8 @@
     </head>
     <body>
 
-        <div class="top-nav">
-            <ul>
-                <li><a href="">Pradinis</a></li>
-                <li><a href="" id="categories">Kategorijos <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown">
-                        <li><a href="">Nekazas</a></li>
-                        <li><a href="">Kzazas</a></li>
-                    </ul>
-                </li>
-                <li><a href="">Populiariausios</a></li>
-                <li><a href="" class="login-reg">Prisijungti</a></li>
-            </ul>
-        </div>
-
         <div id="app">
-            <books-index></books-index>
+            <app></app>
         </div>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" />
         <script src="{{ asset('js/app.js') }}"></script>
