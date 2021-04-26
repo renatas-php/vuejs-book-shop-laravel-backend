@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Prompt', sans-serif;
+}
+
+.new-books-section {
+    display: flex;
+    margin: 0 2rem;
+    flex-wrap: wrap;
+}
+.index-book-item {
+    flex: 0 0 25%;
+    text-align: center;
+}
+.index-book-item .book-cover img{
+    height: 280px;
+    width: auto;
+    object-fit: cover;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+    border-radius: 2px;
+}
+.index-book-item .book-title {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 0;
+    margin-bottom: 0;
+    color: #896b4a;
+    text-align: center;
+}
+.index-book-item .book-author {
+    font-size: 12px;
+    font-weight: 400;
+    padding: 0;
+    color: #605e5e;
+    text-align: center;
+    white-space: break-spaces;
+}
+.index-book-item .book-price {
+    text-align: center;
+}
+.index-book-item .add-to-cart-round {
+
+}
