@@ -166,3 +166,24 @@ body {
     font-family: 'Prompt', sans-serif;
     letter-spacing: 1px;
 }
+.filters {
+    display: flex;
+    justify-content: center;
+}
+.filters select,
+.filters input {
+    border: 1px solid #f2f2f2;
+    margin: 0 0.6rem;
+    margin-bottom: 2rem;
+    height: 2rem;
+    color: #9f9f9f;
+    padding-left: 0.3rem;
+    font-family: inherit;
+}
+.filters select {
+    height: 2.3rem;
+}
+.filters input:focus,
+.filters select:focus {
+    outline: none;
+}

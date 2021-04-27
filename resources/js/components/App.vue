@@ -10,7 +10,7 @@
                         <li><a href="">Kzazas</a></li>
                     </ul>
                 </li>
-                <li><a href="">Populiariausios</a></li>
+                <li><router-link to="/books-popular">Populiariausios</router-link></li>
                 <li><router-link to="/book-offer">Pasiūlyti knygą</router-link></li>
                 <li><a href="" class="login-reg">Prisijungti</a></li>
             </ul>
