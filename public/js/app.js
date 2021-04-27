@@ -1849,7 +1849,79 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      categories: {},
+      genres: {},
+      fields: {
+        user_id: 2,
+        slug: 'hdhhdhdh',
+        cover_img: 'kjkjkj',
+        approved: false,
+        title: '',
+        author: '',
+        category_id: '',
+        genre_id: '',
+        price: '',
+        description: ''
+      },
+      errors: {},
+      form_submitting: false
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('http://samdomas.lt/books-shop/api/v1/categories').then(function (response) {
+      _this.categories = response.data;
+    });
+    axios.get('http://samdomas.lt/books-shop/api/v1/genres').then(function (response) {
+      _this.genres = response.data;
+    });
+  },
+  methods: {
+    submit_form: function submit_form() {
+      var _this2 = this;
+
+      axios.post('http://samdomas.lt/books-shop/api/v1/books/add', this.fields).then(function (response) {
+        _this2.$router.push('/');
+
+        _this2.form_submitting = false;
+      })["catch"](function (error) {
+        if (error.response.status === 422) {
+          _this2.errors = error.response.data.errors;
+          _this2.form_submitting = false;
+        }
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -1920,8 +1992,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_App_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/App.vue */ "./resources/js/components/App.vue");
-/* harmony import */ var _components_Books_Index_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Books/Index.vue */ "./resources/js/components/Books/Index.vue");
-/* harmony import */ var _components_Books_BookOffer_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Books/BookOffer.vue */ "./resources/js/components/Books/BookOffer.vue");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./routes */ "./resources/js/routes/index.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
@@ -1929,24 +2000,13 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_1__.default);
 
 
-
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__.default({
-  mode: 'history',
-  routes: [{
-    path: '/',
-    component: _components_Books_Index_vue__WEBPACK_IMPORTED_MODULE_3__.default
-  }, {
-    path: '/book-offer',
-    component: _components_Books_BookOffer_vue__WEBPACK_IMPORTED_MODULE_4__.default
-  }]
-});
 vue__WEBPACK_IMPORTED_MODULE_0__.default.component('pagination', __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
 var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
   el: '#app',
   components: {
     App: _components_App_vue__WEBPACK_IMPORTED_MODULE_2__.default
   },
-  router: router
+  router: new vue_router__WEBPACK_IMPORTED_MODULE_1__.default(_routes__WEBPACK_IMPORTED_MODULE_3__.default)
 });
 
 /***/ }),
@@ -1979,6 +2039,34 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/routes/index.js":
+/*!**************************************!*\
+  !*** ./resources/js/routes/index.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _components_Books_Index_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Books/Index.vue */ "./resources/js/components/Books/Index.vue");
+/* harmony import */ var _components_Books_BookOffer_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Books/BookOffer.vue */ "./resources/js/components/Books/BookOffer.vue");
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mode: 'history',
+  routes: [{
+    path: '/',
+    component: _components_Books_Index_vue__WEBPACK_IMPORTED_MODULE_0__.default
+  }, {
+    path: '/book-offer',
+    component: _components_Books_BookOffer_vue__WEBPACK_IMPORTED_MODULE_1__.default
+  }]
+});
 
 /***/ }),
 
@@ -20300,7 +20388,203 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v(" Wat blet ")])
+  return _c("div", [
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.submit_form($event)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "offer-book-form" }, [
+          _c("label", { staticClass: "form-label" }, [_vm._v("Pavadinimas")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.fields.title,
+                expression: "fields.title"
+              }
+            ],
+            attrs: { type: "text" },
+            domProps: { value: _vm.fields.title },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.fields, "title", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.errors && _vm.errors.title
+            ? _c("div", { staticClass: "alert alert-danger" }, [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.errors.title[0]) +
+                    "\n            "
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("label", { staticClass: "form-label" }, [_vm._v("Autorius")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.fields.author,
+                expression: "fields.author"
+              }
+            ],
+            attrs: { type: "text" },
+            domProps: { value: _vm.fields.author },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.fields, "author", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { staticClass: "form-label" }, [_vm._v("Kategorija")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.fields.category_id,
+                  expression: "fields.category_id"
+                }
+              ],
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.fields,
+                    "category_id",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            _vm._l(_vm.categories.data, function(category) {
+              return _c("option", { domProps: { value: category.id } }, [
+                _vm._v(_vm._s(category.name))
+              ])
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("label", { staticClass: "form-label" }, [_vm._v("Žanras")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.fields.genre_id,
+                  expression: "fields.genre_id"
+                }
+              ],
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.fields,
+                    "genre_id",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            _vm._l(_vm.genres.data, function(genre) {
+              return _c("option", { domProps: { value: genre.id } }, [
+                _vm._v(_vm._s(genre.name))
+              ])
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("label", { staticClass: "form-label" }, [_vm._v("Kaina")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.fields.price,
+                expression: "fields.price"
+              }
+            ],
+            attrs: { type: "number" },
+            domProps: { value: _vm.fields.price },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.fields, "price", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { staticClass: "form-label" }, [_vm._v("Aprašymas")]),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.fields.description,
+                expression: "fields.description"
+              }
+            ],
+            domProps: { value: _vm.fields.description },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.fields, "description", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("button", [_vm._v("Pateikti")])
+        ])
+      ]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

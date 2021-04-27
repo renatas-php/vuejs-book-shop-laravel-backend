@@ -128,3 +128,41 @@ body {
     text-decoration: none;
     color: #407bee;
 }
+.offer-book-form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto;
+}
+.offer-book-form label {
+    color: #9f9f9f;
+}
+.offer-book-form input,
+.offer-book-form select {
+    border: 1px solid #f2f2f2;
+    margin-bottom: 0.5rem;
+    height: 2rem;
+    color: #9f9f9f;
+    padding-left: 0.3rem;
+    font-family: inherit;
+}
+.offer-book-form textarea {
+    border: 1px solid #f2f2f2;
+    min-height: 6rem;
+    margin-bottom: 0.5rem;
+}
+.offer-book-form input:focus,
+.offer-book-form select:focus,
+.offer-book-form textarea:focus {
+    outline: none;
+}
+.offer-book-form button {
+    height: 2rem;
+    border: 1px solid #f2f2f2;
+    background: linear-gradient(
+    170deg
+    , #2196f3, #6353f7);
+    color: #fff;
+    font-family: 'Prompt', sans-serif;
+    letter-spacing: 1px;
+}

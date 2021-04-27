@@ -5,27 +5,13 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 import App from './components/App.vue'
-import BooksIndex from './components/Books/Index.vue'
-import BookOffer from './components/Books/BookOffer.vue'
 
-const router = new VueRouter({
-    mode: 'history',
-    routes: [
-        {
-            path: '/',
-            component: BooksIndex
-        },
-        {
-            path: '/book-offer',
-            component: BookOffer
-        },
-    ]
-})
+import routes from './routes'
 
 Vue.component('pagination', require('laravel-vue-pagination'));
 
 const app = new Vue({
     el: '#app',
     components: { App },
-    router
+    router: new VueRouter(routes)
 });
