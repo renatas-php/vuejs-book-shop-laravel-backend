@@ -1974,12 +1974,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+window.Laravel = {
+  csrfToken: '{{ csrf_token() }}'
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       fields: {
         email: '',
-        password: ''
+        password: '',
+        years: '',
+        month: ''
       },
       errors: {},
       form_submitting: false
@@ -1990,7 +1999,7 @@ __webpack_require__.r(__webpack_exports__);
     submit_login: function submit_login() {
       var _this = this;
 
-      axios.post('http://samdomas.lt/books-shop/api/v1/books/add', this.fields).then(function (response) {
+      axios.post('http://samdomas.lt/books-shop/api/v1/register', this.fields).then(function (response) {
         _this.$router.push('/');
 
         _this.form_submitting = false;
@@ -2290,6 +2299,7 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
@@ -21044,18 +21054,18 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.fields.title,
-                expression: "fields.title"
+                value: _vm.fields.email,
+                expression: "fields.email"
               }
             ],
             attrs: { type: "text" },
-            domProps: { value: _vm.fields.title },
+            domProps: { value: _vm.fields.email },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.fields, "title", $event.target.value)
+                _vm.$set(_vm.fields, "email", $event.target.value)
               }
             }
           }),
@@ -21077,23 +21087,69 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.fields.author,
-                expression: "fields.author"
+                value: _vm.fields.password,
+                expression: "fields.password"
               }
             ],
             attrs: { type: "text" },
-            domProps: { value: _vm.fields.author },
+            domProps: { value: _vm.fields.password },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.fields, "author", $event.target.value)
+                _vm.$set(_vm.fields, "password", $event.target.value)
               }
             }
           }),
           _vm._v(" "),
-          _c("button", [_vm._v("Prisijungti")]),
+          _c("label", { staticClass: "form-label" }, [_vm._v("Gimimo metai")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.fields.years,
+                expression: "fields.years"
+              }
+            ],
+            attrs: { type: "text" },
+            domProps: { value: _vm.fields.years },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.fields, "years", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { staticClass: "form-label" }, [_vm._v("Gimimo mėnuo")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.fields.month,
+                expression: "fields.month"
+              }
+            ],
+            attrs: { type: "text" },
+            domProps: { value: _vm.fields.month },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.fields, "month", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("button", [_vm._v("Registruotis")]),
           _vm._v(" "),
           _c(
             "h5",
