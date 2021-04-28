@@ -187,3 +187,63 @@ body {
 .filters select:focus {
     outline: none;
 }
+/* Login */
+.login-form {
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    
+}
+.login-form label {
+    color: #9f9f9f;
+}
+.login-form input,
+.login-form select {
+    border: 1px solid #f2f2f2;
+    margin-bottom: 0.5rem;
+    height: 2rem;
+    color: #9f9f9f;
+    padding-left: 0.3rem;
+    font-family: inherit;
+}
+.login-form input:focus,
+.login-form select:focus {
+    outline: none;
+}
+.login-form button {
+    height: 2.4rem;
+    border: 1px solid #f2f2f2;
+    background: linear-gradient( 
+    170deg
+    , #ab21f3, #f753f3);
+    color: #fff;
+    font-family: 'Prompt', sans-serif;
+    letter-spacing: 1px;
+    transition: all .5 ease;
+}
+.login-form button:hover {
+    transform: scale(1.01);
+}
+.login-form .dont-have {
+    margin: 0;
+    margin-top: 0.5rem;
+    color: #a5a5a5;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+.login-form .another-action {
+    background: none;
+    padding: 0 1rem;
+    border: 1px solid #c331f3;
+    color: #be2ef3;
+    margin-left: 1rem;
+    transition: all 0.4 ease;
+}
+.login-form .title {
+    text-align: center;
+}
+.login-form .another-action:hover {}
