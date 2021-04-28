@@ -1,8 +1,9 @@
 <template>
     <div class="overflow-hidden">
         <div class="filters">
-        <select>
-            <option v-for="category in categories.data">{{ category.name }}</option>
+        <select v-model="category_id">
+            <option :value="null" selected>Pasirinkite kategoriją</option>
+            <option v-for="category in categories.data" :value="category.id">{{ category.name }}</option>
         </select>
         <select>
             <option v-for="genre in genres.data">{{ genre.name }}</option>
@@ -36,6 +37,7 @@
                 books: {},
                 genres: {},
                 categories: {},
+                category_id: '',
                 search: ''
             }
         },
@@ -53,6 +55,9 @@
         watch: {
             search(val) {
                 this.getResults();
+            },
+            category_id(val) { 
+                this.getResults(); 
             }
         },
         methods: {
@@ -61,7 +66,8 @@
                 axios.get('http://samdomas.lt/books-shop/api/v1/books', {
                     params: {
                         page,
-                        search: this.search
+                        search: this.search,
+                        category_id: this.category_id
                         }
                 })
                     .then(response => {
