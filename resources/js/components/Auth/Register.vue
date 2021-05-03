@@ -22,6 +22,7 @@
 </template>
 
 <script>
+
     export default {
         data() {
             return {
@@ -40,7 +41,7 @@
         },
         methods: {
             submit_login() {
-                axios.post('http://samdomas.lt/books-shop/api/v1/register', this.fields)
+                     axios.post('http://samdomas.lt/books-shop/api/v1/register', this.fields)
                     .then(response => {
                     this.$router.push('/');
                     this.form_submitting = false;
@@ -50,6 +51,7 @@
                             this.form_submitting = false;
                         }
                     });
+             
             }
         }
     }

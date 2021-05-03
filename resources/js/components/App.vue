@@ -12,6 +12,7 @@
                 <li><router-link to="/books-popular">Populiariausios</router-link></li>
                 <li><router-link to="/book-offer">Pasiūlyti knygą</router-link></li>
                 <li><router-link to="/login" class="login-reg">Prisijungti</router-link></li>
+                <li><router-link to="/logout" class="login-reg">ats</router-link></li>
             </ul>
         </div>
         <router-view></router-view>

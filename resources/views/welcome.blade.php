@@ -7,7 +7,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap" rel="stylesheet">
         <title>Laravel</title>
-       
+        
     </head>
     <body>
 
@@ -28,5 +28,6 @@
                 document.querySelector('.fas').style.transform = 'rotateZ(0deg)';
             });            
         </script>
+        
     </body>
 </html>

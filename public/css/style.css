@@ -247,3 +247,59 @@ body {
     text-align: center;
 }
 .login-form .another-action:hover {}
+
+/* Dashboard */
+.dashboard {
+    display: flex;
+    height: 100vh;
+}
+.dashboard .side-menu {
+    width: 20rem;
+    height: 100%;
+    border-right: 1px solid #f2f2f2;
+}
+.dashboard .side-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 0.4rem;
+}
+.dashboard .side-menu ul li {
+    color: #9f9f9f;
+    padding: 4px;
+}
+.dashboard .dashboard-main-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dashboard .dashboard-main-section .statistic-box {
+    display: flex;
+    justify-content: flex-start;
+    width: 80%;
+    margin: 0 auto;
+}
+.dashboard .dashboard-main-section .statistic-box .fact {
+    width: 250px;
+    border: 1px solid #2a8ee1;
+    box-shadow: 0 3px 7px rgb(0 0 0 / 10%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.dashboard .dashboard-main-section .notifications {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 3rem;
+    box-shadow: 0 3px 7px rgb(0 0 0 / 10%);
+    border: 1px solid #2a8ee1;
+}
+.dashboard .dashboard-main-section .notifications ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.dashboard .dashboard-main-section .notifications ul li {
+    border-bottom: 1px solid #2a8ee1;
+    padding: 1.5rem 2rem;
+}
